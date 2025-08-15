@@ -8,10 +8,34 @@ from .core import TungShing
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="TungShing CLI")
-    parser.add_argument("--datetime", dest="dt", help="ISO datetime (e.g., 2025-02-03T22:11:00+08:00)")
-    parser.add_argument("--tz", dest="tz", default="Asia/Shanghai", help="Output/local tz (default: Asia/Shanghai)")
-    parser.add_argument("--rule-tz", dest="rule_tz", default="Asia/Shanghai", help="Boundary tz (default: Asia/Shanghai)")
+    parser = argparse.ArgumentParser(
+        description=(
+            "TungShing CLI (Chinese authoritative; English note: a strict Huangli/Tung Shing)"
+        )
+    )
+    parser.add_argument(
+        "--datetime",
+        dest="dt",
+        help=(
+            "ISO datetime, 例如 2025-02-03T22:11:00+08:00 / English: ISO datetime, e.g. 2025-02-03T22:11:00+08:00"
+        ),
+    )
+    parser.add_argument(
+        "--tz",
+        dest="tz",
+        default="Asia/Shanghai",
+        help=(
+            "输出/本地时区（默认 Asia/Shanghai）/ English: output/local tz (default: Asia/Shanghai)"
+        ),
+    )
+    parser.add_argument(
+        "--rule-tz",
+        dest="rule_tz",
+        default="Asia/Shanghai",
+        help=(
+            "裁边规则时区（默认 Asia/Shanghai）/ English: boundary tz (default: Asia/Shanghai)"
+        ),
+    )
     args = parser.parse_args()
 
     if args.dt:
