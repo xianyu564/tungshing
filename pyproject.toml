@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tungshing"
+version = "0.1.0"
+description = "严格口径的黄历/通胜（年柱立春、月柱按节、日柱晚子时）；兼容 cnlunar 用法"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Zhang Xianyu (张衔瑜) / Zhang Ziyang (张子阳)", email = "z_zz@u.nus.edu" }
+]
+requires-python = ">=3.9"
+dependencies = [
+  "cnlunar",
+  "sxtwl",
+  "tzdata; platform_system == 'Windows'"
+]
+keywords = ["huangli", "tungshing", "bazi", "ganzhi", "lunar", "cnlunar", "sxtwl"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Astronomy",
+  "Typing :: Typed"
+]
+
+[project.urls]
+Homepage = "https://github.com/xianyu564/tungshing"
+Issues = "https://github.com/xianyu564/tungshing/issues"
+Repository = "https://github.com/xianyu564/tungshing"
+
+[project.scripts]
+tungshing = "tungshing.__main__:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0.0"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [{ include = "tungshing", from = "src" }]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "README.md", "LICENSE", "TungShing.py", "tests", "pyproject.toml", "CONTRIBUTING.md", "CHANGELOG.md", ".github/workflows/ci.yml"]
+
+
