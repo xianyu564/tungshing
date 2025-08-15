@@ -8,6 +8,7 @@
 2. 安装依赖并运行测试：
    - `pip install -e .[dev]`
    - `pytest -q`
+   - 可选：`python -m build` 进行本地打包自检；`twine check dist/*`
 3. 确保修改不破坏“严格口径”定义（Ensure the strict rules stay intact）：
    - 年柱以“立春”为界（精确到分秒）
    - 月柱以“节”交节为界（不是中气）
@@ -16,6 +17,7 @@
 4. 提交 PR（Submit PR）：
    - 清晰描述改动动机、口径影响与测试覆盖
    - 如引入新依赖，请在 `pyproject.toml` 中注明，并解释必要性
+   - 遵循 Conventional Commits（建议）：`feat: ...`, `fix: ...`, `docs: ...`, `chore: ...`
 
 问题反馈请使用 Issues 模板，尽量提供：Python 版本、操作系统、最小复现代码和期望/实际结果。
 For issues, please include Python version, OS, minimal reproduction, expected vs. actual.

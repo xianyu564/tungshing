@@ -147,6 +147,12 @@ TungShing(date: datetime | None = None, *, tz: str = "Asia/Shanghai", rule_tz: s
 
 采用严格口径重算：`year8Char`, `month8Char`, `day8Char`；其余字段由底层对象转发。
 
+返回字段（与 `cnlunar.Lunar` 保持一致，按版本可能略有差异）：
+- `lunarYear`, `lunarMonth`, `lunarDay`, `lunarYearCn`, `lunarMonthCn`, `lunarDayCn`
+- `twohour8Char`（沿用原库口径）
+- 严格口径：`year8Char`, `month8Char`, `day8Char`
+- 便捷字段：`termTodayExact_ruleTz`, `termTodayExact_cn8`
+
 —
 
 ### 与 cnlunar / sxtwl 的差异与动机
@@ -158,14 +164,17 @@ TungShing(date: datetime | None = None, *, tz: str = "Asia/Shanghai", rule_tz: s
 —
 
 ### 开发与测试 · Dev & Test
-- 可选开发依赖：`pip install pytest`
+- 可选开发依赖：`pip install pytest build twine`
 - 运行测试：`pytest -q`
+- 本地打包：`python -m build`（生成 `dist/`）
+- 包校验：`python -m twine check dist/*`
 - CI：见 `.github/workflows/ci.yml`（push/PR 自动触发）
 
 —
 
 ### 变更日志 · Changelog
 - 详见 `CHANGELOG.md`
+  - 当前版本：`tungshing.__version__`（从包元数据导出）
 
 —
 
