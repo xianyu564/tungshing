@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tungshing"
-version = "0.1.0"
+version = "0.1.1"
 description = "严格口径的黄历/通胜（年柱立春、月柱按节、日柱晚子时）；兼容 cnlunar 用法"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -31,6 +31,7 @@ classifiers = [
 Homepage = "https://github.com/xianyu564/tungshing"
 Issues = "https://github.com/xianyu564/tungshing/issues"
 Repository = "https://github.com/xianyu564/tungshing"
+Documentation = "https://github.com/xianyu564/tungshing#readme"
 
 [project.scripts]
 tungshing = "tungshing.__main__:main"
