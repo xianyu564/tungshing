@@ -69,8 +69,11 @@ class TungShing:
                          rule_tz（裁边口径，默认 'Asia/Shanghai'）
       - 属性与方法：除 year8Char/month8Char/day8Char 采“严格口径”
 
-      夜子时(23:00–23:59)：且农历日数字在 23:00 同步滚动，
-      整对象以“次日口径”转发（__getattr__ → 次日 _forward）
+      方法口径（重申）：
+        1) 年柱：立春之后即切换到新年柱（分秒级边界）。
+        2) 月柱：仅在“节”交节之后切换月柱（非“中气”）。
+        3) 日柱：23:00 起算次日；且 23:00–23:59 期间整体视为“次日口径”，
+           农历日数字、中文纪日、当日宜忌等同步前滚（__getattr__ 转发到次日 _forward）。
     """
     def __init__(self, date: datetime = None, *args, **kwargs):
         if date is None:
