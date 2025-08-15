@@ -6,6 +6,12 @@
 - 日柱：晚子时=23:00 起算“次日”的日柱
 其余字段/方法：与原 cnlunar 完全一致（通过转发）。
 节气时刻以 HKO/Beijing(UTC+8) 口径。
+
+English note (Chinese text is authoritative):
+- Year pillar switches at Lìchūn (Beginning of Spring), with minute-second precision
+- Month pillar switches only at "Jié" terms (not at "Zhongqi"), with minute-second precision
+- Day pillar starts the next day from 23:00; between 23:00–23:59 the object behaves as next day as a whole
+Solar term timestamps are interpreted in Beijing/Hong Kong time (UTC+8).
 """
 from __future__ import annotations
 
@@ -74,6 +80,12 @@ class TungShing:
         2) 月柱：仅在“节”交节之后切换月柱（非“中气”）。
         3) 日柱：23:00 起算次日；且 23:00–23:59 期间整体视为“次日口径”，
            农历日数字、中文纪日、当日宜忌等同步前滚（__getattr__ 转发到次日 _forward）。
+
+      English summary (Chinese text is authoritative):
+        1) Year pillar switches right after Lìchūn; minute-second boundary.
+        2) Month pillar switches only when a "Jié" term occurs (not at "Zhongqi").
+        3) Day pillar: next day starts at 23:00; during 23:00–23:59 the whole
+           object forwards to the next-day state (numbers and daily summaries align).
     """
     def __init__(self, date: datetime = None, *args, **kwargs):
         if date is None:
