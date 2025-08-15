@@ -1,8 +1,32 @@
 ### TungShing · 严格口径的黄历/通胜（兼容 cnlunar 用法)
 
+[![CI](https://github.com/xianyu564/tungshing/actions/workflows/ci.yml/badge.svg)](https://github.com/xianyu564/tungshing/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/tungshing.svg)](https://pypi.org/project/tungshing/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11%20|%203.12-blue.svg)](#)
+
 TungShing（通胜）是“黄历”的别名；黄历属于中国传统的“阴阳合历（Lunisolar Calendar）”。本文档以中文为准，同时提供必要的英文说明（Chinese is authoritative; English notes are provided for convenience）。
 
 TungShing (aka Tung Shing/通胜) is an alias of the Chinese Huangli (traditional lunisolar almanac). Chinese text in this README is authoritative; English summaries are included for international users.
+
+—
+
+### 目录 · Table of Contents
+- [国家标准依据 · National Standard](#国家标准依据--national-standard)
+- [核心算法口径 · Core Algorithm Rules](#核心算法口径--core-algorithm-rules)
+- [作者与动机 · Author & Motivation](#作者与动机--author--motivation)
+- [术语与口径 · Terminology & Conventions](#术语与口径--terminology--conventions)
+- [验证与可复现 · Validation & Reproducibility](#验证与可复现--validation--reproducibility)
+- [文件结构 · Repository Structure](#文件结构--repository-structure)
+- [安装 · Installation](#安装--installation)
+- [快速上手 · Quick Start](#快速上手--quick-start)
+- [API 说明 · API](#api-说明--api)
+- [与 cnlunar / sxtwl 的差异与动机](#与-cnlunar--sxtwl-的差异与动机)
+- [开发与测试 · Dev & Test](#开发与测试--dev--test)
+- [变更日志 · Changelog](#变更日志--changelog)
+- [致谢与引用 · Acknowledgements & References](#致谢与引用--acknowledgements--references)
+- [贡献与反馈 · Contributing](#贡献与反馈--contributing)
+- [许可证 · License](#许可证--license)
 
 —
 
@@ -86,7 +110,9 @@ See also: `docs/STANDARD_COMPLIANCE.md` for GB/T 33661-2017 mapping.
 ```bash
 pip install tungshing
 ```
-Python 版本要求：>= 3.9（使用内置 `zoneinfo`）。
+- Python >= 3.9（使用内置 `zoneinfo`）
+- Windows 会自动安装 `tzdata`
+- 依赖：`cnlunar`, `sxtwl`
 
 —
 
@@ -135,6 +161,18 @@ TungShing(date: datetime | None = None, *, tz: str = "Asia/Shanghai", rule_tz: s
 - 可选开发依赖：`pip install pytest`
 - 运行测试：`pytest -q`
 - CI：见 `.github/workflows/ci.yml`（push/PR 自动触发）
+
+—
+
+### 变更日志 · Changelog
+- 详见 `CHANGELOG.md`
+
+—
+
+### 致谢与引用 · Acknowledgements & References
+- GB/T 33661-2017《农历的编算和颁行》
+- 寿星天文历（sxtwl）
+- cnlunar
 
 —
 
