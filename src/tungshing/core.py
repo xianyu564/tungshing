@@ -19,8 +19,13 @@ from datetime import datetime, timedelta
 from typing import Optional, Any
 from zoneinfo import ZoneInfo
 
-import cnlunar as _cn
-import sxtwl as _sx
+try:
+    import cnlunar as _cn  # type: ignore[import]
+    import sxtwl as _sx    # type: ignore[import]
+except Exception as _e:
+    # English note: cnlunar and sxtwl are required runtime dependencies.
+    # 中文：运行时必须安装 cnlunar 与 sxtwl；否则无法进行口径裁边与转发。
+    raise
 
 
 GAN = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"]

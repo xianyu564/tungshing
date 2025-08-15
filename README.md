@@ -214,7 +214,12 @@ CI 会在多个 Python 版本上运行边界用例。
 - Issue: `https://github.com/xianyu564/tungshing/issues`
 - PR: `https://github.com/xianyu564/tungshing/pulls`
 
+
 提交前请先运行本地测试，确保口径未被破坏。
+
+
+其他相关反馈：
+- Email: z_zz@u.nus.edu
 
 ---
 
