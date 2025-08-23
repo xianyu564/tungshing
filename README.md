@@ -1,9 +1,30 @@
-### TungShing · 严格口径的黄历/通胜（兼容 cnlunar 用法)
+# TungShing · 严格口径的黄历/通胜
 
 [![CI](https://github.com/xianyu564/tungshing/actions/workflows/ci.yml/badge.svg)](https://github.com/xianyu564/tungshing/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/tungshing.svg)](https://pypi.org/project/tungshing/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11%20|%203.12-blue.svg)](#)
+[![Code style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Type checked: mypy](https://img.shields.io/badge/type%20checked-mypy-blue.svg)](https://mypy-lang.org)
+
+> **严格口径的中国农历黄历库，兼容 cnlunar API | Strict Chinese lunisolar calendar library with cnlunar-compatible API**
+
+TungShing（通胜）是"黄历"的别名；黄历属于中国传统的"阴阳合历（Lunisolar Calendar）"。本库严格遵循 **GB/T 33661-2017《农历的编算和颁行》** 国家标准，以 sxtwl 天文算法为基础，提供兼容 cnlunar 的 API 接口。
+
+*TungShing (aka Tung Shing/通胜) is an alias of the Chinese Huangli (traditional lunisolar almanac). This library strictly follows the **GB/T 33661-2017** national standard, based on sxtwl astronomical algorithms, and provides a cnlunar-compatible API.*
+
+## ✨ 主要特性 · Key Features
+
+- 🎯 **严格口径**: 年柱立春、月柱按节、日柱晚子时，完全符合国标
+- 📏 **标准合规**: 严格遵循 GB/T 33661-2017 国家标准
+- 🔄 **API兼容**: 与 cnlunar 兼容的 API 设计
+- ⚡ **高精度**: 基于 sxtwl 天文算法，确保计算准确性  
+- 🐍 **现代Python**: 支持 Python 3.9+，类型提示完整
+- 🧪 **高质量**: 完整测试覆盖，CI/CD 保障
+
+*Strict standards compliance • cnlunar-compatible API • High precision • Modern Python • Quality assured*
+
+---
 
 TungShing（通胜）是“黄历”的别名；黄历属于中国传统的“阴阳合历（Lunisolar Calendar）”。本文档以中文为准，同时提供必要的英文说明（Chinese is authoritative; English notes are provided for convenience）。
 

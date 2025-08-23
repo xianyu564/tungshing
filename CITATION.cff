@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+title: "TungShing: Strict Chinese Lunisolar Calendar Library"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: "Zhang"
+    given-names: "Xianyu"
+    orcid: "https://orcid.org/0000-0002-0350-5958"
+    alias: "张衔瑜"
+  - family-names: "Zhang"
+    given-names: "Ziyang"
+    alias: "张子阳"
+repository-code: "https://github.com/xianyu564/tungshing"
+url: "https://github.com/xianyu564/tungshing"
+abstract: >-
+  TungShing is a strict Chinese lunisolar calendar library that
+  follows GB/T 33661-2017 national standards. It provides
+  cnlunar-compatible API with sxtwl astronomical precision.
+  The library implements strict rules for Gan-Zhi boundaries:
+  year columns use Lichun (Spring Begins), month columns use
+  Jie terms, and day columns handle night hours properly.
+keywords:
+  - chinese-calendar
+  - lunar-calendar
+  - astronomy
+  - traditional-chinese
+  - huangli
+  - tungshing
+  - bazi
+  - ganzhi
+license: MIT
+version: "0.1.1"
+date-released: "2025-08-23"
