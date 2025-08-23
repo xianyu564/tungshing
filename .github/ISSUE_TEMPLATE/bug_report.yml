@@ -1,0 +1,98 @@
+name: Bug Report / 错误报告
+description: Report a bug in TungShing / 报告 TungShing 中的错误
+title: "[Bug]: "
+labels: ["bug"]
+assignees:
+  - xianyu564
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+        感谢您花时间填写此错误报告！
+
+  - type: input
+    id: version
+    attributes:
+      label: TungShing Version / 版本
+      description: What version of TungShing are you running? / 您正在运行哪个版本的 TungShing？
+      placeholder: e.g., 0.1.1
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python Version / Python 版本
+      description: What version of Python are you using? / 您使用的是哪个版本的 Python？
+      placeholder: e.g., 3.11.5
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System / 操作系统
+      description: What operating system are you using? / 您使用的是什么操作系统？
+      placeholder: e.g., Ubuntu 22.04, Windows 11, macOS 13
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened? / 发生了什么？
+      description: Describe the bug you encountered / 描述您遇到的错误
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior / 期望的行为
+      description: What did you expect to happen? / 您期望发生什么？
+      placeholder: Tell us what you expected!
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce / 重现步骤
+      description: How can we reproduce this issue? / 我们如何重现这个问题？
+      placeholder: |
+        1. Import tungshing
+        2. Create TungShing instance
+        3. Call method X
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Minimal reproduction code / 最小重现代码
+      description: Please provide a minimal code example that reproduces the issue / 请提供重现问题的最小代码示例
+      render: python
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output / 相关日志输出
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code. / 请复制并粘贴任何相关的日志输出。
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct / 行为准则
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/xianyu564/tungshing/blob/main/CONTRIBUTING.md) / 提交此问题即表示您同意遵守我们的行为准则
+      options:
+        - label: I agree to follow this project's Code of Conduct / 我同意遵守本项目的行为准则
+          required: true

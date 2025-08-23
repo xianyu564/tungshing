@@ -1,0 +1,70 @@
+name: Feature Request / 功能请求
+description: Suggest an idea for TungShing / 为 TungShing 提出新功能建议
+title: "[Feature]: "
+labels: ["enhancement"]
+assignees:
+  - xianyu564
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a new feature!
+        感谢您花时间提出新功能建议！
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Description / 问题描述
+      description: Is your feature request related to a problem? Please describe. / 您的功能请求是否与某个问题相关？请描述。
+      placeholder: I'm always frustrated when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution / 建议的解决方案
+      description: Describe the solution you'd like / 描述您想要的解决方案
+      placeholder: I would like to see...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered / 考虑的替代方案
+      description: Describe any alternative solutions or features you've considered / 描述您考虑过的任何替代解决方案或功能
+      placeholder: I have also considered...
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context / 附加上下文
+      description: Add any other context, screenshots, or examples about the feature request / 添加有关功能请求的任何其他上下文、截图或示例
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Feature Scope / 功能范围
+      description: Which areas would this feature affect? / 此功能会影响哪些领域？
+      options:
+        - label: Core algorithm / 核心算法
+        - label: API interface / API 接口
+        - label: CLI tool / 命令行工具
+        - label: Documentation / 文档
+        - label: Performance / 性能
+        - label: Testing / 测试
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct / 行为准则
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/xianyu564/tungshing/blob/main/CONTRIBUTING.md) / 提交此问题即表示您同意遵守我们的行为准则
+      options:
+        - label: I agree to follow this project's Code of Conduct / 我同意遵守本项目的行为准则
+          required: true
