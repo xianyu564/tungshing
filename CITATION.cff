@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: "Zhang"
     given-names: "Xianyu"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
+    orcid: "https://orcid.org/0000-0002-0350-5958"
     alias: "张衔瑜"
   - family-names: "Zhang"
     given-names: "Ziyang"
@@ -30,4 +30,4 @@ keywords:
   - ganzhi
 license: MIT
 version: "0.1.1"
-date-released: "2025-01-01"
+date-released: "2025-08-23"
