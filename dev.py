@@ -11,26 +11,26 @@ PROJECT_ROOT = Path(__file__).parent
 def run_tests():
     """Run the test suite."""
     print("Running tests...")
-    subprocess.run([sys.executable, "-m", "pytest", "-v"], cwd=PROJECT_ROOT)
+    subprocess.run([sys.executable, "-m", "pytest", "-v"], cwd=PROJECT_ROOT, check=True)
 
 
 def lint():
     """Run linting tools."""
     print("Running ruff...")
-    subprocess.run([sys.executable, "-m", "ruff", "check", "src", "tests"], cwd=PROJECT_ROOT)
-    subprocess.run([sys.executable, "-m", "ruff", "format", "--check", "src", "tests"], cwd=PROJECT_ROOT)
+    subprocess.run([sys.executable, "-m", "ruff", "check", "src", "tests"], cwd=PROJECT_ROOT, check=True)
+    subprocess.run([sys.executable, "-m", "ruff", "format", "--check", "src", "tests"], cwd=PROJECT_ROOT, check=True)
 
 
 def type_check():
     """Run type checking."""
     print("Running mypy...")
-    subprocess.run([sys.executable, "-m", "mypy", "src"], cwd=PROJECT_ROOT)
+    subprocess.run([sys.executable, "-m", "mypy", "src"], cwd=PROJECT_ROOT, check=True)
 
 
 def build():
     """Build the package."""
     print("Building package...")
-    subprocess.run([sys.executable, "-m", "build"], cwd=PROJECT_ROOT)
+    subprocess.run([sys.executable, "-m", "build"], cwd=PROJECT_ROOT, check=True)
 
 
 def check():
