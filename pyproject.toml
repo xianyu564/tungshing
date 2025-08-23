@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tungshing"
-version = "0.1.1"
+dynamic = ["version"]
 description = "严格口径的黄历/通胜（年柱立春、月柱按节、日柱晚子时）；兼容 cnlunar 用法 | Strict Chinese lunar calendar library with cnlunar-compatible API"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -72,11 +72,16 @@ dev = [
   "twine>=4.0.0",
   "ruff>=0.1.0",
   "mypy>=1.0.0",
-  "pre-commit>=3.0.0"
+  "pre-commit>=3.0.0",
+  "bandit[toml]>=1.7.0",
+  "safety>=2.0.0"
 ]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/tungshing"]
+
+[tool.hatch.version]
+path = "src/tungshing/_version.py"
 
 [tool.hatch.build.targets.sdist]
 include = [
@@ -85,11 +90,14 @@ include = [
   "docs/",
   ".github/workflows/",
   "README.md",
-  "LICENSE",
+  "LICENSE", 
   "TungShing.py",
   "pyproject.toml",
   "CONTRIBUTING.md",
-  "CHANGELOG.md"
+  "CHANGELOG.md",
+  "SECURITY.md",
+  "CITATION.cff",
+  "MANIFEST.in"
 ]
 
 # Tool configurations
@@ -140,4 +148,8 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+skips = ["B101"]  # Skip test for assert usage
 
