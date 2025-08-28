@@ -23,6 +23,9 @@
     <a href="https://mypy-lang.org">
       <img src="https://img.shields.io/badge/type%20checked-mypy-blue.svg?style=for-the-badge" alt="Type checked: mypy" />
     </a>
+    <a href="SECURITY.md">
+      <img src="https://img.shields.io/badge/Security-Policy-blue.svg?style=for-the-badge&logo=github" alt="Security Policy" />
+    </a>
   </div>
 </div>
 
