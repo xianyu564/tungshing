@@ -300,6 +300,31 @@ TungShing(date: datetime | None = None, *, tz: str = "Asia/Shanghai", rule_tz: s
 - 寿星天文历（sxtwl）
 - cnlunar
 
+凡没有把我杀死的，都没有把我杀死。
+
+—
+
+## 💝 赞助与支持
+
+<div align="center" style="margin: 18px 0;">
+  <table align="center" style="border-collapse: collapse;">
+    <tr>
+      <td align="center" style="padding: 8px 16px;">
+        <img src=".github/assets/sponsor-qr-code/WeChat%20Sponsor%20Code.jpg" alt="WeChat Sponsor Code" width="220" />
+        <div style="margin-top: 8px; color: #666;">个人 微信赞助</div>
+      </td>
+      <td align="center" style="padding: 8px 16px;">
+        <img src=".github/assets/sponsor-qr-code/SG%20PayNow%20Sponsor%20Code.jpg" alt="SG PayNow Sponsor Code" width="220" />
+        <div style="margin-top: 8px; color: #666;">个人 新加坡 PayNow</div>
+      </td>
+      <td align="center" style="padding: 8px 16px;">
+        <img src=".github/assets/sponsor-qr-code/Start-up%20Company%20Code.PNG" alt="Start-up Company Sponsor Code" width="220" />
+        <div style="margin-top: 8px; color: #666;">我创业的公司 赞助码</div>
+      </td>
+    </tr>
+  </table>
+</div>
+
 —
 
 ### 贡献与反馈 · Contributing
@@ -312,4 +337,9 @@ TungShing(date: datetime | None = None, *, tz: str = "Asia/Shanghai", rule_tz: s
 ### 许可证 · License
 MIT License © 2025 张衔瑜/张子阳
 
+---
 
+<div align="center" style="margin: 12px 0 24px 0;">
+  <img src=".github/assets/icon/文不加点的张衔瑜-公众号二维码.jpg" alt="文不加点的张衔瑜｜公众号二维码" width="220" />
+  <div style="color: #666; margin-top: 6px;">文不加点的张衔瑜</div>
+</div>
