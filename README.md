@@ -1,11 +1,35 @@
-# TungShing · 严格口径的黄历/通胜
 
-[![CI](https://github.com/xianyu564/tungshing/actions/workflows/ci.yml/badge.svg)](https://github.com/xianyu564/tungshing/actions/workflows/ci.yml)
-[![PyPI](https://img.shields.io/pypi/v/tungshing.svg)](https://pypi.org/project/tungshing/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11%20|%203.12-blue.svg)](#)
-[![Code style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![Type checked: mypy](https://img.shields.io/badge/type%20checked-mypy-blue.svg)](https://mypy-lang.org)
+<div align="center">
+  <h1 style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 20px 0; font-size: 2.5em;">
+    TungShing · 严格口径的黄历/通书
+  </h1>
+  
+  <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
+    <a href="https://github.com/xianyu564/tungshing/actions/workflows/ci.yml">
+      <img src="https://img.shields.io/github/actions/workflow/status/xianyu564/tungshing/ci.yml?branch=main&style=for-the-badge" alt="CI Status" />
+    </a>
+    <a href="https://pypi.org/project/tungshing/">
+      <img src="https://img.shields.io/pypi/v/tungshing.svg?style=for-the-badge" alt="PyPI Version" />
+    </a>
+    <a href="https://pypi.org/project/tungshing/">
+      <img src="https://img.shields.io/pypi/pyversions/tungshing.svg?style=for-the-badge&logo=python" alt="Supported Python Versions" />
+    </a>
+    <a href="LICENSE">
+      <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT License" />
+    </a>
+    <a href="https://github.com/astral-sh/ruff">
+      <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&style=for-the-badge" alt="Code style: Ruff" />
+    </a>
+    <a href="https://mypy-lang.org">
+      <img src="https://img.shields.io/badge/type%20checked-mypy-blue.svg?style=for-the-badge" alt="Type checked: mypy" />
+    </a>
+    <a href="SECURITY.md">
+      <img src="https://img.shields.io/badge/Security-Policy-blue.svg?style=for-the-badge&logo=github" alt="Security Policy" />
+    </a>
+  </div>
+</div>
+
+<!-- Badges duplicated above in HTML block; keeping the section clean by removing markdown badges. -->
 
 > **严格口径的中国农历黄历库，兼容 cnlunar API | Strict Chinese lunisolar calendar library with cnlunar-compatible API**
 
@@ -300,6 +324,31 @@ TungShing(date: datetime | None = None, *, tz: str = "Asia/Shanghai", rule_tz: s
 - 寿星天文历（sxtwl）
 - cnlunar
 
+凡没有把我杀死的，都没有把我杀死。
+
+—
+
+## 💝 赞助与支持
+
+<div align="center" style="margin: 18px 0;">
+  <table align="center" style="border-collapse: collapse;">
+    <tr>
+      <td align="center" style="padding: 8px 16px;">
+        <img src=".github/assets/sponsor-qr-code/WeChat%20Sponsor%20Code.jpg" alt="WeChat Sponsor Code" width="220" />
+        <div style="margin-top: 8px; color: #666;">个人 微信赞助</div>
+      </td>
+      <td align="center" style="padding: 8px 16px;">
+        <img src=".github/assets/sponsor-qr-code/SG%20PayNow%20Sponsor%20Code.jpg" alt="SG PayNow Sponsor Code" width="220" />
+        <div style="margin-top: 8px; color: #666;">个人 新加坡 PayNow</div>
+      </td>
+      <td align="center" style="padding: 8px 16px;">
+        <img src=".github/assets/sponsor-qr-code/Start-up%20Company%20Code.PNG" alt="Start-up Company Sponsor Code" width="220" />
+        <div style="margin-top: 8px; color: #666;">我创业的公司 赞助码</div>
+      </td>
+    </tr>
+  </table>
+</div>
+
 —
 
 ### 贡献与反馈 · Contributing
@@ -312,4 +361,9 @@ TungShing(date: datetime | None = None, *, tz: str = "Asia/Shanghai", rule_tz: s
 ### 许可证 · License
 MIT License © 2025 张衔瑜/张子阳
 
+---
 
+<div align="center" style="margin: 12px 0 24px 0;">
+  <img src=".github/assets/icon/文不加点的张衔瑜-公众号二维码.jpg" alt="文不加点的张衔瑜｜公众号二维码" width="220" />
+  <div style="color: #666; margin-top: 6px;">文不加点的张衔瑜</div>
+</div>
