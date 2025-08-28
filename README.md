@@ -138,21 +138,117 @@ pip install tungshing
 —
 
 ### 快速上手 · Quick Start
+
+#### 基础用法 · Basic Usage
+
 ```python
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from tungshing import TungShing
 
+# 使用当前时间 · Current time
+ts = TungShing()
+print(f"当前四柱: {ts.year8Char} {ts.month8Char} {ts.day8Char} {ts.twohour8Char}")
+print(f"农历: {ts.lunarYearCn}年{ts.lunarMonthCn}月{ts.lunarDayCn}")
+
+# 指定时间 · Specific datetime
 dt = datetime(2025, 2, 3, 22, 11, tzinfo=ZoneInfo("Asia/Shanghai"))
 ts = TungShing(dt)
-
-print(ts.year8Char, ts.month8Char, ts.day8Char, ts.twohour8Char)
-print(ts.lunarYear, ts.lunarMonth, ts.lunarDay, ts.lunarDayCn)
-print("今日交节(规则时区)", ts.termTodayExact_ruleTz)
+print(f"八字: {ts.year8Char} {ts.month8Char} {ts.day8Char} {ts.twohour8Char}")
+print(f"农历: {ts.lunarYear}年{ts.lunarMonth}月{ts.lunarDay}日 ({ts.lunarDayCn})")
 ```
-CLI:
+
+#### 严格边界验证 · Strict Boundary Validation
+
+```python
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
+
+# 立春前后年柱变化 · Year pillar change at Lichun
+lichun_2025 = datetime(2025, 2, 3, 22, 10, 13, tzinfo=ZoneInfo("Asia/Shanghai"))
+
+before_lichun = TungShing(lichun_2025 - timedelta(minutes=1))
+after_lichun = TungShing(lichun_2025 + timedelta(minutes=1))
+
+print(f"立春前年柱: {before_lichun.year8Char}")  # 甲辰 (2024年)
+print(f"立春后年柱: {after_lichun.year8Char}")   # 乙巳 (2025年)
+
+# 节气换月柱 · Month pillar change at Jie terms
+jingzhe_2025 = datetime(2025, 3, 5, 16, 7, tzinfo=ZoneInfo("Asia/Shanghai"))
+
+before_jingzhe = TungShing(jingzhe_2025 - timedelta(minutes=1))
+after_jingzhe = TungShing(jingzhe_2025 + timedelta(minutes=1))
+
+print(f"惊蛰前月柱: {before_jingzhe.month8Char}")
+print(f"惊蛰后月柱: {after_jingzhe.month8Char}")
+
+# 夜子时日柱前滚 · Day pillar advance at night Zi hour
+night_zi = datetime(2025, 1, 1, 23, 30, tzinfo=ZoneInfo("Asia/Shanghai"))
+ts_night = TungShing(night_zi)
+
+print(f"23:30日柱: {ts_night.day8Char}")      # 次日日柱
+print(f"23:30农历: {ts_night.lunarDayCn}")    # 次日农历
+```
+
+#### 时区处理 · Timezone Handling
+
+```python
+# 不同时区的边界计算 · Different timezone boundaries
+hk_time = datetime(2025, 2, 3, 22, 10, tzinfo=ZoneInfo("Asia/Hong_Kong"))
+sh_time = datetime(2025, 2, 3, 22, 10, tzinfo=ZoneInfo("Asia/Shanghai"))
+
+ts_hk = TungShing(hk_time, tz="Asia/Hong_Kong", rule_tz="Asia/Hong_Kong")
+ts_sh = TungShing(sh_time, tz="Asia/Shanghai", rule_tz="Asia/Shanghai")
+
+print(f"香港时区年柱: {ts_hk.year8Char}")
+print(f"上海时区年柱: {ts_sh.year8Char}")
+```
+
+#### CLI 使用 · Command Line Usage
+
 ```bash
-tungshing --datetime "2025-02-03T22:11:00+08:00" --tz Asia/Shanghai --rule-tz Asia/Shanghai
+# 当前时间查询 · Current time
+tungshing
+
+# 指定时间查询 · Specific time
+tungshing --datetime "2025-02-03T22:11:00+08:00"
+
+# 不同时区 · Different timezones  
+tungshing --datetime "2025-02-03T15:11:00Z" --tz "Asia/Shanghai" --rule-tz "Asia/Hong_Kong"
+
+# 查看帮助 · Help
+tungshing --help
+```
+
+#### 节气查询 · Solar Term Queries
+
+```python
+# 查询今日是否有节气 · Check for solar terms today
+ts = TungShing(datetime(2025, 2, 3, 12, 0, tzinfo=ZoneInfo("Asia/Shanghai")))
+
+if ts.termTodayExact_ruleTz:
+    print(f"今日节气时刻: {ts.termTodayExact_ruleTz}")
+    print(f"北京时间: {ts.termTodayExact_cn8}")
+else:
+    print("今日无节气")
+```
+
+#### 与 cnlunar 兼容性 · cnlunar Compatibility
+
+```python
+# 完全兼容 cnlunar.Lunar 的参数和属性 · Full cnlunar.Lunar compatibility
+ts = TungShing(
+    datetime(2025, 1, 1),
+    godType='8char',
+    year8Char='beginningOfSpring'
+)
+
+# 所有 cnlunar 属性都可访问 · All cnlunar attributes accessible
+print(ts.lunarYear, ts.lunarMonth, ts.lunarDay)
+print(ts.lunarYearCn, ts.lunarMonthCn, ts.lunarDayCn)
+
+# 但年柱、月柱、日柱使用严格口径 · But with strict timing for pillars
+print("严格口径四柱:", ts.year8Char, ts.month8Char, ts.day8Char, ts.twohour8Char)
 ```
 
 —
