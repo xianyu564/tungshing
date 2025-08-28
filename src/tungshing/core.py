@@ -27,6 +27,9 @@ except Exception as _e:
 	# 中文：运行时必须安装 cnlunar 与 sxtwl；否则无法进行口径裁边与转发。
 	raise
 
+from .cache import cached_solar_term, cached_ganzhi, _global_cache
+from .validation import validate_input, safe_calculation, TungShingValidator
+
 
 GAN = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"]
 ZHI = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"]
@@ -41,9 +44,10 @@ _JIE_IDX = {JQMC.index(n) for n in [
 ]}  # 以“节”而非“中气”换月 / Use "Jié" (not "Zhongqi") to switch months
 
 
+@cached_ganzhi
 def _gz_str(gz) -> str:
 	"""
-	Convert ganzhi object to string representation.
+	Convert ganzhi object to string representation with caching.
 	
 	Args:
 		gz: Ganzhi object with tg (tiangan) and dz (dizhi) attributes
@@ -55,6 +59,9 @@ def _gz_str(gz) -> str:
 		>>> gz = sxtwl.fromSolar(2025, 1, 1).getYearGZ()
 		>>> _gz_str(gz)
 		'甲辰'
+		
+	Performance:
+		Results are cached for improved performance on repeated calls.
 	"""
 	return GAN[gz.tg] + ZHI[gz.dz]
 
