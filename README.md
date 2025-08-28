@@ -5,23 +5,28 @@
   </h1>
   
   <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
-    <a href="https://opensource.org/licenses/MIT">
-      <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License" />
+    <a href="https://github.com/xianyu564/tungshing/actions/workflows/ci.yml">
+      <img src="https://img.shields.io/github/actions/workflow/status/xianyu564/tungshing/ci.yml?branch=main&style=for-the-badge" alt="CI Status" />
     </a>
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-      <img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=for-the-badge" alt="CC BY-NC-SA 4.0" />
+    <a href="https://pypi.org/project/tungshing/">
+      <img src="https://img.shields.io/pypi/v/tungshing.svg?style=for-the-badge" alt="PyPI Version" />
     </a>
-    <img src="https://img.shields.io/badge/Python-3.7+-blue.svg?style=for-the-badge&logo=python" alt="Python 3.7+" />
-    <img src="https://img.shields.io/badge/Status-Active%20Maintenance-brightgreen.svg?style=for-the-badge" alt="Active Maintenance" />
+    <a href="https://pypi.org/project/tungshing/">
+      <img src="https://img.shields.io/pypi/pyversions/tungshing.svg?style=for-the-badge&logo=python" alt="Supported Python Versions" />
+    </a>
+    <a href="LICENSE">
+      <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT License" />
+    </a>
+    <a href="https://github.com/astral-sh/ruff">
+      <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&style=for-the-badge" alt="Code style: Ruff" />
+    </a>
+    <a href="https://mypy-lang.org">
+      <img src="https://img.shields.io/badge/type%20checked-mypy-blue.svg?style=for-the-badge" alt="Type checked: mypy" />
+    </a>
   </div>
 </div>
 
-[![CI](https://github.com/xianyu564/tungshing/actions/workflows/ci.yml/badge.svg)](https://github.com/xianyu564/tungshing/actions/workflows/ci.yml)
-[![PyPI](https://img.shields.io/pypi/v/tungshing.svg)](https://pypi.org/project/tungshing/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python](https://img.shields.io/pypi/pyversions/tungshing.svg)](https://pypi.org/project/tungshing/)
-[![Code style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![Type checked: mypy](https://img.shields.io/badge/type%20checked-mypy-blue.svg)](https://mypy-lang.org)
+<!-- Badges duplicated above in HTML block; keeping the section clean by removing markdown badges. -->
 
 > **严格口径的中国农历黄历库，兼容 cnlunar API | Strict Chinese lunisolar calendar library with cnlunar-compatible API**
 
