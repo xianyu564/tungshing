@@ -27,7 +27,7 @@ except Exception as _e:
 	# 中文：运行时必须安装 cnlunar 与 sxtwl；否则无法进行口径裁边与转发。
 	raise
 
-from .cache import cached_solar_term, cached_ganzhi, _global_cache
+# _global_cache not needed in this module
 from .validation import validate_input, safe_calculation, TungShingValidator
 
 
@@ -43,8 +43,6 @@ _JIE_IDX = {JQMC.index(n) for n in [
 	"立秋","白露","寒露","立冬","大雪","小寒",
 ]}  # 以“节”而非“中气”换月 / Use "Jié" (not "Zhongqi") to switch months
 
-
-@cached_ganzhi
 def _gz_str(gz) -> str:
 	"""
 	Convert ganzhi object to string representation with caching.
