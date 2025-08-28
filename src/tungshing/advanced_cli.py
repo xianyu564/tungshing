@@ -508,7 +508,9 @@ def main() -> None:
     
     # Disable colors if requested
     if args.no_color:
-        Colors.colorize = lambda text, color: text
+        def no_color(text, color):
+            return text
+        Colors.colorize = no_color
     
     try:
         # Handle utility commands

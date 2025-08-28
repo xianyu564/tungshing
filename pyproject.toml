@@ -82,7 +82,9 @@ dev = [
   "mypy>=1.0.0",
   "pre-commit>=3.0.0",
   "bandit[toml]>=1.7.0",
-  "safety>=2.0.0"
+  "safety>=2.0.0",
+  "psutil>=5.9.0",
+  "coverage>=7.0.0"
 ]
 
 [tool.hatch.build.targets.wheel]

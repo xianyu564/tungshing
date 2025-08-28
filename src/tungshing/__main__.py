@@ -3,6 +3,8 @@ TungShing command-line interface.
 
 Provides a convenient CLI for querying Chinese lunar calendar information
 with strict timing accuracy according to GB/T 33661-2017 standards.
+
+This is the basic CLI. For advanced features, use: python -m tungshing.advanced_cli
 """
 from __future__ import annotations
 
@@ -16,6 +18,11 @@ from .core import TungShing
 
 def main() -> None:
     """Main CLI entry point."""
+    # Check if user wants advanced CLI
+    if len(sys.argv) > 1 and sys.argv[1] in ['--advanced', '--interactive', '-i']:
+        from .advanced_cli import main as advanced_main
+        return advanced_main()
+    
     parser = argparse.ArgumentParser(
         prog="tungshing",
         description=(
@@ -29,6 +36,7 @@ Examples:
   tungshing --datetime 2025-02-03T22:11:00+08:00
   tungshing --datetime 2025-02-03T22:11:00 --tz Asia/Shanghai
   tungshing --tz UTC --rule-tz Asia/Hong_Kong
+  tungshing --advanced                         # Advanced interactive mode
 
 For more information: https://github.com/xianyu564/tungshing
         """
@@ -57,12 +65,22 @@ For more information: https://github.com/xianyu564/tungshing
         help="Boundary calculation timezone (default: Asia/Shanghai)",
     )
     parser.add_argument(
+        "--advanced", "--interactive", "-i",
+        action="store_true",
+        help="Launch advanced interactive CLI"
+    )
+    parser.add_argument(
         "--version",
         action="version", 
         version=f"%(prog)s {get_version()}"
     )
     
     args = parser.parse_args()
+
+    # Launch advanced CLI if requested
+    if args.advanced:
+        from .advanced_cli import main as advanced_main
+        return advanced_main()
 
     # Parse datetime
     if args.dt:
@@ -97,12 +115,16 @@ For more information: https://github.com/xianyu564/tungshing
         print()
         
         # Solar term information
-        if ts.termTodayExact_ruleTz:
+        if hasattr(ts, 'termTodayExact_ruleTz') and ts.termTodayExact_ruleTz:
             print("今日节气 | Solar Term Today:")
             print(f"  规则时区: {ts.termTodayExact_ruleTz}")
-            print(f"  北京时间: {ts.termTodayExact_cn8}")
+            if hasattr(ts, 'termTodayExact_cn8'):
+                print(f"  北京时间: {ts.termTodayExact_cn8}")
         else:
             print("今日无节气 | No solar term today")
+            
+        print()
+        print(f"💡 Tip: Use 'tungshing --advanced' for interactive mode with more features!")
             
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
