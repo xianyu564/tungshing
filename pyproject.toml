@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "tungshing"
 dynamic = ["version"]
-description = "严格口径的黄历/通胜（年柱立春、月柱按节、日柱晚子时）；兼容 cnlunar 用法 | Strict Chinese lunar calendar library with cnlunar-compatible API"
+description = "严格口径的黄历/通胜 | Strict Chinese lunar calendar with GB/T 33661-2017 compliance and cnlunar-compatible API"
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [
@@ -21,22 +21,26 @@ dependencies = [
   "tzdata; platform_system == 'Windows'"
 ]
 keywords = [
-  "huangli", 
-  "tungshing", 
-  "bazi", 
-  "ganzhi", 
-  "lunar", 
-  "cnlunar", 
-  "sxtwl",
   "chinese-calendar",
-  "lunar-calendar",
+  "lunar-calendar", 
+  "huangli",
+  "tungshing",
+  "bazi",
+  "ganzhi",
+  "cnlunar",
+  "sxtwl",
   "astronomy",
-  "traditional-chinese"
+  "traditional-chinese",
+  "solar-terms",
+  "gb-33661-2017",
+  "accurate-timing",
+  "timezone-aware"
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
   "Intended Audience :: Science/Research",
+  "Intended Audience :: End Users/Desktop",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
@@ -48,10 +52,14 @@ classifiers = [
   "Topic :: Scientific/Engineering :: Astronomy",
   "Topic :: Software Development :: Libraries :: Python Modules",
   "Topic :: Scientific/Engineering",
+  "Topic :: Religion",
+  "Topic :: Utilities",
   "Typing :: Typed",
   "Natural Language :: Chinese (Simplified)",
   "Natural Language :: Chinese (Traditional)",
-  "Natural Language :: English"
+  "Natural Language :: English",
+  "Environment :: Console",
+  "Environment :: Console :: Curses"
 ]
 
 [project.urls]
