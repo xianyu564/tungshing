@@ -1,6 +1,9 @@
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 from tungshing import TungShing
 
 

@@ -27,6 +27,9 @@ except Exception as _e:
 	# 中文：运行时必须安装 cnlunar 与 sxtwl；否则无法进行口径裁边与转发。
 	raise
 
+from .cache import cached_solar_term, cached_ganzhi, _global_cache
+from .validation import validate_input, safe_calculation, TungShingValidator
+
 
 GAN = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"]
 ZHI = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"]
@@ -41,16 +44,62 @@ _JIE_IDX = {JQMC.index(n) for n in [
 ]}  # 以“节”而非“中气”换月 / Use "Jié" (not "Zhongqi") to switch months
 
 
+@cached_ganzhi
 def _gz_str(gz) -> str:
+	"""
+	Convert ganzhi object to string representation with caching.
+	
+	Args:
+		gz: Ganzhi object with tg (tiangan) and dz (dizhi) attributes
+		
+	Returns:
+		str: String representation like "甲子", "乙丑", etc.
+		
+	Examples:
+		>>> gz = sxtwl.fromSolar(2025, 1, 1).getYearGZ()
+		>>> _gz_str(gz)
+		'甲辰'
+		
+	Performance:
+		Results are cached for improved performance on repeated calls.
+	"""
 	return GAN[gz.tg] + ZHI[gz.dz]
 
 
 def _to_local(dt: datetime, tz: str) -> datetime:
+	"""
+	Convert datetime to specified timezone, handling both naive and aware datetimes.
+	
+	Args:
+		dt: Input datetime (naive or timezone-aware)
+		tz: Target timezone string (e.g., 'Asia/Shanghai', 'UTC')
+		
+	Returns:
+		datetime: Timezone-aware datetime in the specified timezone
+		
+	Examples:
+		>>> dt = datetime(2025, 1, 1, 12, 0)
+		>>> _to_local(dt, 'Asia/Shanghai')
+		datetime(2025, 1, 1, 12, 0, tzinfo=ZoneInfo('Asia/Shanghai'))
+	"""
 	z = ZoneInfo(tz)
 	return (dt if dt.tzinfo else dt.replace(tzinfo=z)).astimezone(z)
 
 
 def _aware_to_naive(dt: datetime) -> datetime:
+	"""
+	Remove timezone information from an aware datetime, keeping the same local time.
+	
+	Args:
+		dt: Timezone-aware datetime
+		
+	Returns:
+		datetime: Naive datetime with same local time components
+		
+	Warning:
+		This does not convert to UTC; it simply strips timezone info.
+		Use only when you need to work with naive datetimes in the same timezone.
+	"""
 	return dt.replace(tzinfo=None)
 
 
@@ -187,16 +236,55 @@ class TungShing:
 		return base
 
 	def __getattr__(self, name: str) -> Any:
+		"""
+		Forward attribute access to the internal cnlunar object.
+		
+		This enables full compatibility with cnlunar.Lunar API while maintaining
+		our strict timing calculations for the core pillars.
+		
+		Args:
+			name: Attribute name to access
+			
+		Returns:
+			Any: Value from the forwarded cnlunar object
+			
+		Note:
+			During 23:00-23:59, forwards to next-day object for consistency.
+		"""
 		return getattr(self._forward, name)
 
 	@property
 	def termTodayExact_ruleTz(self) -> Optional[str]:
+		"""
+		Get exact solar term time for today in the rule timezone.
+		
+		Returns:
+			Optional[str]: ISO format timestamp if there's a solar term today,
+			              None otherwise
+			              
+		Examples:
+			>>> ts = TungShing(datetime(2025, 2, 3))
+			>>> ts.termTodayExact_ruleTz  # Lichun 2025
+			'2025-02-03T22:10:13+08:00'
+		"""
 		y, m, d = _to_local(self.date, self._rule_tz).date().timetuple()[:3]
 		info = _term_on_day_in_rule_tz(y, m, d, self._rule_tz)
 		return info[1].isoformat() if info else None
 
 	@property
 	def termTodayExact_cn8(self) -> Optional[str]:
+		"""
+		Get exact solar term time for today in China Standard Time (UTC+8).
+		
+		Returns:
+			Optional[str]: ISO format timestamp if there's a solar term today,
+			              None otherwise
+			              
+		Examples:
+			>>> ts = TungShing(datetime(2025, 2, 3))
+			>>> ts.termTodayExact_cn8  # Lichun 2025 in UTC+8
+			'2025-02-03T22:10:13+08:00'
+		"""
 		y, m, d = _to_local(self.date, self._rule_tz).date().timetuple()[:3]
 		info = _term_on_day_in_rule_tz(y, m, d, self._rule_tz)
 		return info[2].isoformat() if info else None
