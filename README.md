@@ -1,9 +1,25 @@
-# TungShing · 严格口径的黄历/通胜
+
+<div align="center">
+  <h1 style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 20px 0; font-size: 2.5em;">
+    TungShing · 严格口径的黄历/通书
+  </h1>
+  
+  <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
+    <a href="https://opensource.org/licenses/MIT">
+      <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License" />
+    </a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+      <img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=for-the-badge" alt="CC BY-NC-SA 4.0" />
+    </a>
+    <img src="https://img.shields.io/badge/Python-3.7+-blue.svg?style=for-the-badge&logo=python" alt="Python 3.7+" />
+    <img src="https://img.shields.io/badge/Status-Active%20Maintenance-brightgreen.svg?style=for-the-badge" alt="Active Maintenance" />
+  </div>
+</div>
 
 [![CI](https://github.com/xianyu564/tungshing/actions/workflows/ci.yml/badge.svg)](https://github.com/xianyu564/tungshing/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/tungshing.svg)](https://pypi.org/project/tungshing/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11%20|%203.12-blue.svg)](#)
+[![Python](https://img.shields.io/pypi/pyversions/tungshing.svg)](https://pypi.org/project/tungshing/)
 [![Code style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![Type checked: mypy](https://img.shields.io/badge/type%20checked-mypy-blue.svg)](https://mypy-lang.org)
 
